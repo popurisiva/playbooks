@@ -1,0 +1,48 @@
+---
+- hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: build VM
+      clc_server:
+        type: standard
+        location: UC1
+        group: JC
+        count: 3
+        name: JCTS
+        cpu: 1
+        memory: 1
+        template: CENTOS-6-64-TEMPLATE
+        storage_type: standard
+        password: "Svvs1231!"
+      register: clc
+
+    - name: inventory
+      add_host:
+        groups=servers
+        name={{ item.name }}
+        ansible_ssh_host={{ item.details.ipAddresses[0]['internal'] }}
+        ansible_ssh_user=root
+        ansible_ssh_pass='Svvs1231!'
+        ansible_connection=ssh
+        ansible_port=22
+      with_items: clc.servers
+      
+    - name: wait for servers to come online
+      wait_for:
+        host: "{{ item.details.ipAddresses[0]['internal'] }}"
+        port: "{{ 5986 if 'windows' in item.osType.lower() else 22 }}"
+        state: started
+      with_items: clc.servers
+        
+
+- hosts: servers
+  gather_facts: true
+  tasks:
+    - name: Test Command
+      shell: echo "echo"
+
+- hosts: servers
+  gather_facts: true
+  tasks:
+    - name: Test Command 2
+      shell: echo "echoing"
