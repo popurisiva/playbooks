@@ -26,3 +26,10 @@ fields:
     displayName: Command to execute
     type: text
     required: true
+    
+  - name: test
+    displayName: Test slider
+    type: slider
+    min: 4
+    max: 16
+    default: 8
