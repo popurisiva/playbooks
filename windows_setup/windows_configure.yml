@@ -9,7 +9,7 @@
         package_id: 37510ad0-cf2b-4f4b-a1bc-a0394f15e8cf
         package_params: {}
     - name: Wait for a minute
-      command: sleep 30
+      command: sleep 15
     - name: run the Winrm BP
       clc_blueprint_package:
         server_ids: "{{ server }}"
