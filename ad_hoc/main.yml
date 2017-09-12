@@ -1,0 +1,5 @@
+- hosts: all,!localhost
+  gather_facts: "{{ get_facts }}"
+  tasks:
+    - name: Execute User Defined Command
+      shell: "{{ command }}"
