@@ -27,6 +27,15 @@ fields:
     type: text
     required: true
     
+  - displayName: Additional Repositories
+    name: repo_count
+    type: number
+    required: true
+    min: 0
+    max: 20
+    default: 0
+    helpText: Enter the number of additional repositories you would like to protect. Free version cannot have additional repositories.
+    
   - name: test
     displayName: Test slider
     type: slider
