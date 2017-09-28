@@ -33,7 +33,7 @@ fields:
     required: true
     min: 0
     max: 20
-    default: 0
+    default: 1
     helpText: Enter the number of additional repositories you would like to protect. Free version cannot have additional repositories.
     
   - name: test
