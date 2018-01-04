@@ -12,9 +12,9 @@ schedulable: true
 fields:
   - name: dc
     displayName: Datacenter
-    default: "IL1"
+    default: GB3
     type: datacenters
-    helpText: Must be IL1
+    helpText: Must be GB3
     required: true
 
   - name: network_details
