@@ -10,12 +10,32 @@ organizationUrl: https://runner.ctl.io
 schedulable: true
 
 fields:
-  - name: servers
-    displayName: Select Servers to run on
-    type: servers
-    multiple: true
-    inventory: true
+  - name: dc
+    displayName: Datacenter
+    default: "GB3"
+    type: datacenters
+    helpText: Must be GB3
     required: true
+
+  - name: network_details
+    displayName: Network
+    type: networks
+    parent: dc
+    required: true
+    helpText: Select the network that the baremetal servers should be installed on
+    detail: true
+
+  - name: group
+    displayName: group
+    type: groups
+    parent: dc
+    required: true
+
+  - name: domain
+    displayName: Domain name
+    type: text
+    required: true
+    default: centurylink.local
 
   - name: get_facts
     displayName: Gather Server Facts?
