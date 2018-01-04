@@ -12,7 +12,7 @@ schedulable: true
 fields:
   - name: dc
     displayName: Datacenter
-    default: GB3
+    default: "GB3"
     type: datacenters
     helpText: Must be GB3
     required: true
