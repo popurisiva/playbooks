@@ -13,6 +13,7 @@ fields:
   - name: dc
     displayName: Datacenter
     type: datacenters
+    default: "GB3"
     helpText: Must be GB3
     required: true
 
